@@ -6,6 +6,7 @@ xlsxwriter
 customtkinter
 matplotlib
 mplcursors
+openpyxl>=3.1
 
 # Build-time dependency (used only by build_exe.bat to create the .exe)
 pyinstaller>=6.3
