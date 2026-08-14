@@ -2,21 +2,21 @@ name: Build Python to EXE
 
 on:
   push:
-    branches: [ main ] # Akan berjalan otomatis saat ada perubahan di branch 'main'
-  workflow_dispatch: # Memungkinkan kamu menjalankan proses ini secara manual
+    branches: [ main ]
+  workflow_dispatch:
 
 jobs:
   build:
-    runs-on: windows-latest # Menggunakan server Windows agar hasilnya format .exe
+    runs-on: windows-latest
 
     steps:
     - name: Checkout repository
-      uses: actions/checkout@v3
+      uses: actions/checkout@v4 # Diperbarui ke v4
 
     - name: Set up Python
-      uses: actions/setup-python@v4
+      uses: actions/setup-python@v5 # Diperbarui ke v5
       with:
-        python-version: '3.10' # Sesuaikan dengan versi Python yang kamu gunakan
+        python-version: '3.10'
 
     - name: Install dependencies
       run: |
@@ -26,11 +26,10 @@ jobs:
 
     - name: Build with PyInstaller
       run: |
-        # Perintah ini akan membuat file .exe dengan ikon Anfrec.ico
         pyinstaller --noconfirm --onefile --windowed --icon=Anfrec.ico rainfall_app.py
 
     - name: Upload EXE Artifact
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4 # Diperbarui ke v4 agar tidak error
       with:
         name: Aplikasi-Rainfall-EXE
         path: dist/*.exe
