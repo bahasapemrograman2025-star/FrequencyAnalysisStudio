@@ -1,9 +1,11 @@
 # Runtime dependencies for Rainfall Frequency Analysis Studio
-pandas>=2.0
-numpy>=1.24
-scipy>=1.10
-xlsxwriter>=3.1
-openpyxl>=3.1
+numpy
+pandas
+scipy
+xlsxwriter
+customtkinter
+matplotlib
+mplcursors
 
 # Build-time dependency (used only by build_exe.bat to create the .exe)
 pyinstaller>=6.3
